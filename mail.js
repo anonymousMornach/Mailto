@@ -1,6 +1,7 @@
 const express = require("express");
 const nodemailer = require("nodemailer");
 const axios = require("axios");
+const cors = require("cors");
 require("dotenv").config();
 
 // Create an instance of Express
@@ -8,6 +9,9 @@ const app = express();
 
 // Middleware to parse JSON data
 app.use(express.json());
+
+//Enable Cors
+app.use(cors());
 
 // POST endpoint for sending an email
 app.post("/send-email", async (req, res) => {
