@@ -17,20 +17,20 @@ app.use(cors());
 app.post("/send-email", async (req, res) => {
   const { email, title, message } = req.body;
 
-  try {
+//  try {
     // Make a request to ZeroBounce API for email validation
-    const response = await axios.get("https://api.zerobounce.net/v2/validate", {
-      params: {
-        api_key: process.env.ZEROBOUNCE_API_KEY,
-        email: email,
-      },
-    });
+   // const response = await axios.get("https://api.zerobounce.net/v2/validate", {
+    //  params: {
+      //  api_key: process.env.ZEROBOUNCE_API_KEY,
+        //email: email,
+      //},
+   // });
 
     // Get the result from ZeroBounce API
-    const { status } = response.data;
+   // const { status } = response.data;
 
     // Check if the email is valid or not
-    if (status === "Valid") {
+   // if (status === "Valid") {
       // Create a transporter for sending emails
       const transporter = nodemailer.createTransport({
         // Configure the email provider
@@ -61,15 +61,15 @@ app.post("/send-email", async (req, res) => {
           res.status(200).json({ message: "Email sent successfully!" });
         }
       });
-    } else {
-      res.status(400).json({ message: "Invalid email address." });
-    }
-  } catch (error) {
-    console.error(error);
-    res
-      .status(500)
-      .json({ error: "An error occurred while validating the email." });
-  }
+    //}else {
+      //res.status(400).json({ message: "Invalid email address." });
+    //}
+  //} catch (error) {
+    //console.error(error);
+    //res
+      //.status(500)
+      //.json({ error: "An error occurred while validating the email." });
+  //}
 });
 
 // Start the server
