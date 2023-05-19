@@ -44,7 +44,7 @@ app.post("/send-email", async (req, res) => {
       // Define the email options
       const mailOptions = {
         from: email,
-        to: "ddtaiwo04@gmail.com",
+        to: "tboyecreativesolu@gmail.com",
         subject: `TBOYE CUSTOMER SERVICE`,
         text: `Subject: ${title}\nCustomer name: ${name}\nCustomer email: ${email}\nCustomer message: ${message}`,
       };
