@@ -15,7 +15,7 @@ app.use(cors());
 
 // POST endpoint for sending an email
 app.post("/send-email", async (req, res) => {
-  const { email, title, message } = req.body;
+  const { name, email, title, message } = req.body;
 
 //  try {
     // Make a request to ZeroBounce API for email validation
@@ -45,8 +45,8 @@ app.post("/send-email", async (req, res) => {
       const mailOptions = {
         from: email,
         to: "ddtaiwo04@gmail.com",
-        subject: title,
-        text: message,
+        subject: `TBOYE CUSTOMER SERVICE`,
+        text: `Subject: ${title}\nCustomer name: ${name}\nCustomer email: ${email}\nCustomer message: ${message}`,
       };
 
       // Send the email
